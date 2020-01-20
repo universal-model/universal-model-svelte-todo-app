@@ -1,0 +1,34 @@
+{
+  "name": "universal-model-svelte-todo-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "eslint": "eslint --ext .js,.svelte src",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "svelte": "^3.17.1",
+    "universal-model-svelte": "^0.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "prettier": "^1.19.1",
+    "prettier-plugin-svelte": "^0.7.0",
+    "svelte-loader": "^2.13.6",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "printWidth": 110,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "svelteStrictMode": true
+  }
+}
