@@ -1,16 +1,15 @@
 <script>
   import { onDestroy, onMount } from 'svelte';
-  import store from '../store/store';
-  import fetchTodos from './model/actions/fetchTodos';
-  import todoListController from './controller/todoListController';
-  import toggleShouldShowOnlyDoneTodos from './model/actions/toggleShouldShowOnlyDoneTodos';
-  import toggleIsDoneTodo from './model/actions/toggleIsDoneTodo';
-  import removeTodo from './model/actions/removeTodo';
+  import store from '@/store/store';
+  import fetchTodos from '@/todolist/model/actions/fetchTodos';
+  import todoListController from '@/todolist/controller/todoListController';
+  import toggleShouldShowOnlyUnDoneTodos from '@/todolist/model/actions/toggleShouldShowOnlyUnDoneTodos';
+  import toggleIsDoneTodo from '@/todolist/model/actions/toggleIsDoneTodo';
+  import removeTodo from '@/todolist/model/actions/removeTodo';
 
-  const state = store.getState();
+  const [todosState] = store.useState([store.getState().todosState]);
   const selectors = store.getSelectors();
-  const [todosState] = store.useState([state.todosState]);
-  const [shownTodos] = store.useSelectors([selectors.shownTodos]);
+  const [shownTodos, userName] = store.useSelectors([selectors.shownTodos, selectors.userName]);
 
   onMount(() => {
     // noinspection JSIgnoredPromiseFromCall
@@ -25,22 +24,28 @@
 
 <div>
   <input
-    id="shouldShowOnlyDoneTodos"
+    id="shouldShowOnlyUnDoneTodos"
     type="checkbox"
-    bind:checked="{$todosState.shouldShowOnlyDoneTodos}"
-    on:click="{toggleShouldShowOnlyDoneTodos}" />
-  <label for="shouldShowOnlyDoneTodos">Show only done todos</label>
-  <ul>
-    {#each $shownTodos as todo}
-      <li>
-        <input
-          id="{todo.name}"
-          type="checkbox"
-          bind:checked="{todo.isDone}"
-          on:click="{() => toggleIsDoneTodo(todo)}" />
-        <label for="{todo.name}">{todo.name}</label>
-        <button on:click="{() => removeTodo(todo)}">Remove</button>
-      </li>
-    {/each}
-  </ul>
+    bind:checked="{$todosState.shouldShowOnlyUnDoneTodos}"
+    on:click="{toggleShouldShowOnlyUnDoneTodos}" />
+  <label for="shouldShowOnlyUnDoneTodos">Show only undone todos</label>
+  {#if $todosState.isFetchingTodos}
+    <div>Fetching todos...</div>
+  {:else if $todosState.hasTodosFetchFailure}
+    <div>Failed to fetch todos</div>
+  {:else}
+    <ul>
+      {#each $shownTodos as todo}
+        <li>
+          <input
+            id="{todo.name}"
+            type="checkbox"
+            bind:checked="{todo.isDone}"
+            on:click="{() => toggleIsDoneTodo(todo)}" />
+          <label for="{todo.name}">{$userName}: {todo.name}</label>
+          <button on:click="{() => removeTodo(todo)}">Remove</button>
+        </li>
+      {/each}
+    </ul>
+  {/if}
 </div>

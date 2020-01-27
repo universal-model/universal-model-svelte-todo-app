@@ -1,11 +1,11 @@
-import addTodo from '../model/actions/addTodo';
-import removeAllTodos from '../model/actions/removeAllTodos';
+import addTodo from '@/todolist/model/actions/addTodo';
+import removeAllTodos from '@/todolist/model/actions/removeAllTodos';
 
 export default {
   handleKeyPress(keyboardEvent) {
-    if (keyboardEvent.code === 'KeyA') {
+    if (keyboardEvent.code === 'KeyA' && keyboardEvent.ctrlKey) {
       addTodo();
-    } else if (keyboardEvent.code === 'KeyR') {
+    } else if (keyboardEvent.code === 'KeyR' && keyboardEvent.ctrlKey) {
       removeAllTodos();
     }
   }

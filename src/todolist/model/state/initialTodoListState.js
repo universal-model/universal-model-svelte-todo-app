@@ -1,5 +1,6 @@
 export default {
   todos: [],
-  shouldShowOnlyDoneTodos: false,
-  isFetchingTodos: false
+  shouldShowOnlyUnDoneTodos: false,
+  isFetchingTodos: false,
+  hasTodosFetchFailure: false
 };

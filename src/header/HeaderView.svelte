@@ -1,10 +1,8 @@
 <script>
-  import changeUserName from './model/actions/changeUserName';
-  import store from '../store/store';
+  import changeUserName from '@/header/model/actions/changeUserName';
+  import store from '@/store/store';
 
-  const state = store.getState();
-  const [headerState] = store.useState([state.headerState]);
-  console.log('jee');
+  const [headerState] = store.useState([store.getState().headerState]);
 </script>
 
 <div>

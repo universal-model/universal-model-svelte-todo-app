@@ -1,4 +1,4 @@
-import store from '../../../store/store';
+import store from '@/store/store';
 
 export default function removeTodo(todoToRemove) {
   const { todosState } = store.getState();
