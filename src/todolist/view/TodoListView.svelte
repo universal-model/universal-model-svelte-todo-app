@@ -7,9 +7,9 @@
   import toggleIsDoneTodo from '@/todolist/model/actions/toggleIsDoneTodo';
   import removeTodo from '@/todolist/model/actions/removeTodo';
 
-  const [todosState] = store.useState([store.getState().todosState]);
+  const [todosState] = store.useState('todos', [store.getState().todosState]);
   const selectors = store.getSelectors();
-  const [shownTodos, userName] = store.useSelectors([selectors.shownTodos, selectors.userName]);
+  const [shownTodos, userName] = store.useSelectors('todos', [selectors.shownTodos, selectors.userName]);
 
   onMount(() => {
     // noinspection JSIgnoredPromiseFromCall

@@ -2,7 +2,7 @@
   import changeUserName from '@/header/model/actions/changeUserName';
   import store from '@/store/store';
 
-  const [headerText] = store.useSelectors([store.getSelectors().headerText]);
+  const [headerText] = store.useSelectors('header', [store.getSelectors().headerText]);
 </script>
 
 <div>

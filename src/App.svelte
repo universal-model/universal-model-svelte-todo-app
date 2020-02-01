@@ -1,6 +1,6 @@
 <script>
-  import HeaderView from '@/header/HeaderView.svelte';
-  import TodoListView from '@/todolist/TodoListView.svelte';
+  import HeaderView from '@/header/view/HeaderView.svelte';
+  import TodoListView from '@/todolist/view/TodoListView.svelte';
 </script>
 
 <div>
