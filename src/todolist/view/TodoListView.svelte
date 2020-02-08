@@ -14,11 +14,11 @@
   onMount(() => {
     // noinspection JSIgnoredPromiseFromCall
     fetchTodos();
-    document.addEventListener('keypress', todoListController.handleKeyPress);
+    document.addEventListener('keydown', todoListController.handleKeyDown);
   });
 
   onDestroy(() => {
-    document.removeEventListener('keypress', todoListController.handleKeyPress);
+    document.removeEventListener('keydown', todoListController.handleKeyDown);
   });
 </script>
 
