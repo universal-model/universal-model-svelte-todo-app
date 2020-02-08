@@ -13,7 +13,7 @@ module.exports = (env = {}) => ({
       svelte: path.resolve('node_modules', 'svelte'),
       "@": path.resolve(__dirname, "./src")
     },
-    extensions: ['.mjs', '.js', '.svelte'],
+    extensions: ['.mjs', '.js', '.ts', '.svelte'],
     mainFields: ['svelte', 'browser', 'module', 'main']
   },
   module: {
@@ -29,7 +29,7 @@ module.exports = (env = {}) => ({
         }
       },
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         loader: 'babel-loader'
       }
     ]
