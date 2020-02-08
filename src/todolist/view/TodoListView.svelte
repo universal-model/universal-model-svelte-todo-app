@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onDestroy, onMount } from 'svelte';
   import store from '@/store/store';
   import fetchTodos from '@/todolist/model/actions/fetchTodos';
@@ -10,7 +10,7 @@
   const [todosState] = store.useState('todos', [store.getState().todosState]);
   const selectors = store.getSelectors();
   const [shownTodos, userName] = store.useSelectors('todos', [selectors.shownTodos, selectors.userName]);
-
+  
   onMount(() => {
     // noinspection JSIgnoredPromiseFromCall
     fetchTodos();

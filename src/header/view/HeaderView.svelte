@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import changeUserName from '@/header/model/actions/changeUserName';
   import store from '@/store/store';
 
