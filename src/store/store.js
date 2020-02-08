@@ -9,6 +9,6 @@ const initialState = {
   todosState: createSubState(initialTodoListState)
 };
 
-const selectors = combineSelectors([createTodoListStateSelectors(), createHeaderStateSelectors()]);
+const selectors = combineSelectors(createTodoListStateSelectors(), createHeaderStateSelectors());
 
 export default createStore(initialState, selectors);
