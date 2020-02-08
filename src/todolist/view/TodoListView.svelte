@@ -10,7 +10,7 @@
   const [todosState] = store.useState('todos', [store.getState().todosState]);
   const selectors = store.getSelectors();
   const [shownTodos, userName] = store.useSelectors('todos', [selectors.shownTodos, selectors.userName]);
-  
+
   onMount(() => {
     // noinspection JSIgnoredPromiseFromCall
     fetchTodos();
