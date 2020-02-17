@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "svelte": "^3.17.1",
-    "universal-model-svelte": "^0.5.2"
+    "universal-model-svelte": "^0.5.3"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
